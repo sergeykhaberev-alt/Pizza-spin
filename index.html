@@ -12,8 +12,9 @@
     <nav>
       <button class="nav-link active" data-page="wheel">Колесо</button>
       <button class="nav-link" data-page="history">История</button>
-      <button class="nav-link" data-page="about">О нас</button>
       <button class="nav-link" data-page="profile">Профиль</button>
+      <button class="nav-link" data-page="about">О нас</button>
+      <button class="nav-link" data-page="contacts">Контакты</button>
     </nav>
     <button class="profile-mini" id="profileButton">👤 <span id="userLabel">Гость</span></button>
   </header>
@@ -38,7 +39,8 @@
           <label for="codeInput">Код покупки</label>
           <div class="code-row"><input id="codeInput" type="text" placeholder="Например, DODO-2026" autocomplete="off"><button id="checkCode">Проверить код</button></div>
           <div id="codeMessage" class="message" aria-live="polite">Для демонстрации доступны коды из списка ниже.</div>
-          <div class="demo-codes"><b>Демо-коды:</b><button class="code-chip" data-code="DODO-1000">DODO-1000</button><button class="code-chip" data-code="PIZZA-500">PIZZA-500</button><button class="code-chip" data-code="BONUS-2000">BONUS-2000</button></div>
+          <div class="demo-codes"><b>Код для демонстрации:</b><button class="code-chip" data-code="0000">0000</button><span class="demo-hint">Можно использовать повторно</span></div>
+          <div class="demo-codes"><b>Дополнительные тестовые коды:</b><button class="code-chip" data-code="DODO-1000">DODO-1000</button><button class="code-chip" data-code="PIZZA-500">PIZZA-500</button><button class="code-chip" data-code="BONUS-2000">BONUS-2000</button></div>
           <div class="purchase-note">В демонстрации код проверяется в браузере. Для настоящих покупок нужна серверная проверка чеков.</div>
         </section>
 
@@ -74,7 +76,8 @@
         <article class="panel about-card"><div class="about-icon">🔐</div><h2>2. Подтверди чек</h2><p>Введи код на сайте. После проверки тебе станет доступно вращение колеса.</p></article>
         <article class="panel about-card"><div class="about-icon">🎉</div><h2>3. Забери бонус</h2><p>Получи скидку или подарок и используй его согласно условиям акции.</p></article>
       </div>
-      <div class="panel terms"><h2>Правила участия</h2><ul><li>Каждый код покупки можно использовать только один раз.</li><li>Сумма и условия покупки определяются организатором акции.</li><li>Выигранный бонус сохраняется в истории браузера в этой демонстрационной версии.</li><li>Срок действия и условия использования приза должны быть указаны при запуске реальной акции.</li></ul></div>
+      <div class="panel terms"><h2>Правила участия</h2><ul><li>Каждый обычный код покупки можно использовать только один раз.</li><li>Код 0000 предназначен только для демонстрации и может использоваться повторно.</li><li>Сумма и условия покупки определяются организатором акции.</li><li>Выигранный бонус сохраняется в истории браузера в этой демонстрационной версии.</li><li>Срок действия и условия использования приза должны быть указаны при запуске реальной акции.</li></ul></div>
+      <div class="location-note"><span>📍</span><div><b>Место создания проекта</b><small>Нижний Новгород, ВГУВТ</small></div></div>
     </section>
 
     <section id="page-profile" class="page hidden">
@@ -89,6 +92,14 @@
         <div class="panel stats-panel"><h2>Твоя статистика</h2><div class="stat"><span>Всего вращений</span><b id="profileSpins">0</b></div><div class="stat"><span>Выигранные бонусы</span><b id="profilePrizes">0</b></div><div class="stat"><span>Доступные вращения</span><b id="profileTurns">0</b></div></div>
       </div>
       <button id="resetData" class="text-button">Сбросить демонстрационные данные</button>
+    </section>
+
+    <section id="page-contacts" class="page hidden">
+      <div class="page-title"><span class="eyebrow">СВЯЗЬ С АВТОРАМИ</span><h1>Контакты</h1><p>Создатели и разработчики проекта Pizza Bonus.</p></div>
+      <div class="contacts-grid">
+        <article class="panel contact-card"><div class="contact-avatar">👨‍💻</div><span class="section-kicker">СОЗДАТЕЛЬ 01</span><h2>Имя первого создателя</h2><p>Здесь можно указать контактные данные: телефон, электронную почту или Telegram.</p><div class="contact-placeholder">Контактные данные будут добавлены</div></article>
+        <article class="panel contact-card"><div class="contact-avatar">👨‍💻</div><span class="section-kicker">СОЗДАТЕЛЬ 02</span><h2>Имя второго создателя</h2><p>Здесь можно указать контактные данные: телефон, электронную почту или Telegram.</p><div class="contact-placeholder">Контактные данные будут добавлены</div></article>
+      </div>
     </section>
   </main>
 

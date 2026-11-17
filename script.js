@@ -64,6 +64,15 @@ function checkCode() {
     setMessage("Этот код уже использован. Каждый чек даёт только одно вращение.", "error");
     return;
   }
+  // Секретный демонстрационный код: даёт вращение и не расходуется.
+  if (code === "0000") {
+    data.availableTurns += 1;
+    saveData();
+    $("codeInput").value = "";
+    setMessage("Демонстрационный код принят! Добавлено одно вращение. Код 0000 можно использовать повторно.", "success");
+    updateCounters();
+    return;
+  }
   const purchase = DEMO_CODES[code];
   if (!purchase) {
     setMessage("Код не найден. Проверь его или используй один из демо-кодов.", "error");
