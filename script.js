@@ -37,10 +37,15 @@ function saveData() {
 }
 const $ = id => document.getElementById(id);
 
-function showPage(page) {
+const PAGES = ["wheel", "history", "profile", "about", "contacts"];
+function showPage(page, updateAddress = true) {
+  if (!PAGES.includes(page)) page = "wheel";
   document.querySelectorAll(".page").forEach(el => el.classList.add("hidden"));
   $("page-" + page).classList.remove("hidden");
   document.querySelectorAll(".nav-link").forEach(btn => btn.classList.toggle("active", btn.dataset.page === page));
+  if (updateAddress && window.location.hash !== "#" + page) {
+    history.pushState(null, "", "#" + page);
+  }
   if (page === "history") renderHistory();
   if (page === "profile") renderProfile();
 }
@@ -48,6 +53,12 @@ document.querySelectorAll("[data-page]").forEach(btn => {
   btn.addEventListener("click", () => showPage(btn.dataset.page));
 });
 $("profileButton").addEventListener("click", () => showPage("profile"));
+function pageFromAddress() {
+  const page = window.location.hash.replace(/^#\/?/, "");
+  showPage(PAGES.includes(page) ? page : "wheel", false);
+}
+window.addEventListener("popstate", pageFromAddress);
+window.addEventListener("hashchange", pageFromAddress);
 
 function setMessage(text, type = "") {
   const el = $("codeMessage");
@@ -186,3 +197,4 @@ function escapeHtml(value) {
 
 updateCounters();
 renderHistory();
+pageFromAddress();
